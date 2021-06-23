@@ -8,6 +8,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 class Course(models.Model):
     name = models.CharField(max_length=120)
     description = models.TextField(max_length=1000)
@@ -18,16 +19,16 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
+
 class Branch(models.Model):
     latitude = models.CharField(max_length=300)
     longtitude = models.CharField(max_length=300)
     address = models.CharField(max_length=300)
     course = models.ForeignKey(Course, related_name='branches', on_delete=models.CASCADE)
 
-
-
     def __str__(self):
         return self.address
+
 
 class Contact(models.Model):
     CHOICES = [
